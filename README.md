@@ -4,6 +4,6 @@ all design is based on the original [concept](https://www.reddit.com/r/NOTHING/c
 
 ---
 
-## Screenshots
+## Screenshot
 
-<img src="file:///home/bmaroti9/StudioProjects/n_calc/Screenshots/Screenshot_20240112_194648.png" title="" alt="1" width="124"><img src="file:///home/bmaroti9/StudioProjects/n_calc/Screenshots/Screenshot_20240112_194723.png" title="" alt="2" width="124"><img src="file:///home/bmaroti9/StudioProjects/n_calc/Screenshots/Screenshot_20240112_194740.png" title="" alt="3" width="124">
+![gallery](Screenshots/nothing_gallery.png)
