@@ -18,7 +18,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
 
-Widget nothingtext(String text, double size, {color = Colors.white, align = TextAlign.start}) {
+Widget nothingtext(String text, double size,
+    {color = Colors.white, align = TextAlign.start}) {
   return Text(
     text,
     textAlign: align,
@@ -59,7 +60,13 @@ Color darken(Color color, [double amount = .1]) {
 
 Widget numberButton(String character, Function addChar, double width,
     [Color color = const Color(0xff1A1A1A), Color textColor = Colors.white]) {
-  return CoreButton(text: character, color: color, text_color: textColor, onTap: addChar, width: width,);
+  return CoreButton(
+    text: character,
+    color: color,
+    text_color: textColor,
+    onTap: addChar,
+    width: width,
+  );
 }
 
 class CoreButton extends StatefulWidget {
@@ -69,8 +76,12 @@ class CoreButton extends StatefulWidget {
   final Color text_color;
   final double width;
 
-  const CoreButton({required this.text, required this.onTap,
-    required this.color, required this.text_color, required this.width});
+  const CoreButton(
+      {required this.text,
+      required this.onTap,
+      required this.color,
+      required this.text_color,
+      required this.width});
 
   @override
   _CoreButtonState createState() => _CoreButtonState();
@@ -94,8 +105,8 @@ class _CoreButtonState extends State<CoreButton>
       lowerBound: 0.0,
       upperBound: 0.2,
     )..addListener(() {
-      setState(() => _scaleTransformValue = 1 - animationController.value);
-    });
+        setState(() => _scaleTransformValue = 1 - animationController.value);
+      });
   }
 
   @override
@@ -111,7 +122,7 @@ class _CoreButtonState extends State<CoreButton>
   void _restoreButtonSize() {
     Future.delayed(
       const Duration(milliseconds: clickAnimationDurationMillis),
-          () => animationController.reverse(),
+      () => animationController.reverse(),
     );
   }
 
@@ -126,15 +137,14 @@ class _CoreButtonState extends State<CoreButton>
       onTapDown: (_) => _shrinkButtonSize(),
       onTapCancel: _restoreButtonSize,
       child: Transform.scale(
-        scale: _scaleTransformValue,
-        child: Container(
-          decoration: BoxDecoration(
-            color: widget.color,
-            borderRadius: BorderRadius.circular(100)
-          ),
-          child: Center(child: nothingtext(widget.text, widget.width * 0.1, color: widget.text_color)),
-        )
-      ),
+          scale: _scaleTransformValue,
+          child: Container(
+            decoration: BoxDecoration(
+                color: widget.color, borderRadius: BorderRadius.circular(100)),
+            child: Center(
+                child: nothingtext(widget.text, widget.width * 0.1,
+                    color: widget.text_color)),
+          )),
     );
   }
 }
